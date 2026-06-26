@@ -21,7 +21,7 @@ var can_move := true
 var can_change_animation := true
 
 
-@warning_ignore("unused_parameter")
+
 func _physics_process(delta: float) -> void:
 
 	# Reset số lần air attack khi chạm đất
@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 			if Input.is_action_pressed("attack"):
 
 				# Trên không chỉ cho full attack 2 lần
-				if !is_on_floor() and count_combo >= 2:
+				if !is_on_floor() and count_combo >= 1:
 					pass
 				else:
 					start_attack()

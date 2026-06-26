@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var player := $Player
+@onready var enemy := $Enemy
 @onready var Map:= $"."
 @onready var Box_talk := $Player/Dialouge
 @onready var Camera := $Player/Camera2D
@@ -54,14 +55,8 @@ func _ready():
 	player.can_change_animation = true
 
 func _process(delta: float) -> void:
-	#Camera setting
-	Camera.global_position.x = lerp(
-	Camera.global_position.x,
-	Camera.global_position.x, 0.2)
-	Camera.global_position.y = fixed_y_camera
-	
-	time += delta
-	Announce.position.y = start_y_announce + sin(time * 2.0) * 5.0
+	Camera_setting()
+	hovering(Announce, delta)
 
 
 func type_loop(label: Label, text_show: String, speed := 0.05):
@@ -77,6 +72,11 @@ func type_loop(label: Label, text_show: String, speed := 0.05):
 
 func _on_start_combat_body_entered(body: Node2D) -> void:
 	if body is Player:
+		#xoay enemy lai doi dien player
+		enemy.animate.flip_h = true
+		#chay animation idle
+		enemy.can_move = false
+		
 		#stop Player
 		player.can_move = false
 		player.animate.play("idle")
@@ -105,10 +105,14 @@ func _on_start_combat_body_entered(body: Node2D) -> void:
 		
 		await Box_talk.Talk(Box_talk.Player_talk, 3, 3)
 		
-		#tra lai player
+		#tra lai di chuyen cho player
 		player.can_move = true
-
+		
+		#kich hoat aim. Enemy truy sat player
+		enemy.target = player
+		enemy.can_move = true
 func _on_exit_map_body_entered(body: Node2D) -> void:
+	#Exit map
 		if body is Player:
 			var tween := create_tween()
 			tween.tween_property(Map, "modulate:a", 0, 1.0)
@@ -119,5 +123,16 @@ func _on_exit_map_body_entered(body: Node2D) -> void:
 
 
 func _on_start_combat_body_exited(body: Node2D) -> void:
+	#Stop receive input
 	if body is Player:
 		Start_combat_zone.set_deferred("monitoring", false)
+	
+func Camera_setting():
+	Camera.global_position.x = lerp(
+	Camera.global_position.x,
+	Camera.global_position.x, 0.2)
+	Camera.global_position.y = fixed_y_camera
+
+func hovering(Name, t):
+	time += t
+	Name.position.y = start_y_announce + sin(time * 2.0) * 5.0

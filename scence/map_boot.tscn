@@ -169,7 +169,7 @@ position = Vector2(314.5, 23.5)
 shape = SubResource("RectangleShape2D_fjl3r")
 
 [node name="Enemy" parent="." unique_id=1052105146 instance=ExtResource("7_x8wqr")]
-position = Vector2(1097.5, 137.5)
+position = Vector2(1104, 154.5)
 
 [node name="Start_combat" type="Area2D" parent="." unique_id=1231985327]
 

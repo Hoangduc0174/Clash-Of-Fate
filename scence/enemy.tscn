@@ -49,33 +49,37 @@ region = Rect2(256, 256, 64, 64)
 atlas = ExtResource("1_j6d7t")
 region = Rect2(320, 256, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0p8j0"]
-atlas = ExtResource("1_j6d7t")
-region = Rect2(64, 0, 64, 80)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_pu7dk"]
 atlas = ExtResource("1_j6d7t")
-region = Rect2(128, 0, 64, 80)
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4w8p1"]
 atlas = ExtResource("1_j6d7t")
-region = Rect2(192, 0, 64, 80)
+region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ahrc"]
 atlas = ExtResource("1_j6d7t")
-region = Rect2(256, 0, 64, 80)
+region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kkrda"]
 atlas = ExtResource("1_j6d7t")
-region = Rect2(320, 0, 64, 80)
+region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nrubw"]
 atlas = ExtResource("1_j6d7t")
-region = Rect2(384, 0, 64, 80)
+region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_syyve"]
 atlas = ExtResource("1_j6d7t")
-region = Rect2(448, 0, 64, 80)
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u3bv"]
+atlas = ExtResource("1_j6d7t")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqm7r"]
+atlas = ExtResource("1_j6d7t")
+region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jxbx5"]
 atlas = ExtResource("1_j6d7t")
@@ -148,9 +152,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0p8j0")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_pu7dk")
 }, {
 "duration": 1.0,
@@ -167,10 +168,16 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_syyve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u3bv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqm7r")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -201,7 +208,7 @@ radius = 6.5
 height = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_355ya"]
-radius = 19.506409
+radius = 17.528547
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3g3fa"]
 atlas = ExtResource("3_pu7dk")
@@ -217,32 +224,31 @@ script = ExtResource("1_355ya")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1426564378]
 texture_filter = 1
-position = Vector2(20.499998, 9.5)
+position = Vector2(21, 1.5000005)
 scale = Vector2(1.0156249, 1.0695312)
 sprite_frames = SubResource("SpriteFrames_jxbx5")
-animation = &"move"
-metadata/_edit_lock_ = true
+animation = &"idle"
+frame_progress = 0.9000217
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1435563308]
-visible = false
-position = Vector2(-0.5, 17.5)
+position = Vector2(20.5, 23)
 shape = SubResource("CapsuleShape2D_66tjb")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=886024626]
-visible = false
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=991418932]
-position = Vector2(12.5, 4.5)
+position = Vector2(33, 19)
 shape = SubResource("CircleShape2D_355ya")
+metadata/_edit_lock_ = true
 
 [node name="HUD" type="Control" parent="." unique_id=584821281]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -2.0
-offset_top = 12.0
-offset_right = 33.5
-offset_bottom = 43.0
+offset_left = 5.0
+offset_top = 5.5
+offset_right = 40.5
+offset_bottom = 36.5
 metadata/_edit_lock_ = true
 
 [node name="HpBar" type="TextureProgressBar" parent="HUD" unique_id=612161669]
@@ -265,6 +271,5 @@ offset_bottom = -9.0
 text = "10"
 label_settings = SubResource("LabelSettings_4w8p1")
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_exited" from="Hitbox" to="." method="_on_hitbox_area_exited"]

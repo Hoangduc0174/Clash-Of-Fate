@@ -6,7 +6,7 @@ var Player_talk := [
 	"Sao mình lại ở đây?",
 	"Mọi thứ thật mơ hồ...",
 	"Mọi người đâu cả rồi? Mình phải mau chóng tìm họ...",
-	"Tại sao lại có một con quái vật ở đây?",
+	"Nó là thứ quái quỷ gì vậy?",
 ]
 
 var panel: Panel

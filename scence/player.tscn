@@ -249,7 +249,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b0rre")
 }],
-"loop": false,
+"loop": true,
 "name": &"attack",
 "speed": 12.0
 }, {
@@ -418,7 +418,7 @@ radius = 12.0
 height = 54.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qav0y"]
-radius = 52.009613
+radius = 42.0119
 
 [node name="Player" type="CharacterBody2D" unique_id=1884601066]
 script = ExtResource("1_mjc1j")
@@ -427,23 +427,19 @@ script = ExtResource("1_mjc1j")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_sgooa")
 animation = &"attack"
-frame = 9
-frame_progress = 1.0
+frame = 7
+frame_progress = 0.077759236
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1755748890]
-visible = false
 position = Vector2(3, 53)
 shape = SubResource("CapsuleShape2D_do3ar")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=655831817]
-visible = false
 position = Vector2(160, -14)
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1794643249]
-position = Vector2(-96, 59)
+position = Vector2(-124, 55)
 shape = SubResource("CircleShape2D_qav0y")
-metadata/_edit_lock_ = true
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
