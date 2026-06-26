@@ -1,7 +1,7 @@
 # Changelog
 
 ## 26/6/2026
-###Fix Hp Bar
+### 13:54 enemy truy duoi player
 
 
 
