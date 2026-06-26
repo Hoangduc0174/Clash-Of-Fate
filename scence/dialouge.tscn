@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://di85b6cfro3am"]
+
+[ext_resource type="Script" uid="uid://wckfiswixhkl" path="res://script/dialouge.gd" id="1_gl7hh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6wr04"]
+line_spacing = 1.0
+font_size = 15
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Dialouge" type="Control" unique_id=1438592303]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gl7hh")
+
+[node name="Speak" type="Label" parent="." unique_id=699123828]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1126.0
+offset_bottom = 488.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_6wr04")

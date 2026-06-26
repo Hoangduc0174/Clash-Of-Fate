@@ -1,0 +1,186 @@
+[gd_scene format=3 uid="uid://cb7ser7n854t"]
+
+[ext_resource type="Script" uid="uid://cfnvl48lrl83s" path="res://script/coin.gd" id="1_so5us"]
+[ext_resource type="Texture2D" uid="uid://cli6rhi2a7jhp" path="res://assets/Tiny Swords (Free Pack)/Terrain/Resources/Gold/Gold Resource/Gold_Resource_Highlight.png" id="2_0j5b4"]
+[ext_resource type="Script" uid="uid://drpgvgnxn3i2v" path="res://script/hud.gd" id="3_l4cea"]
+[ext_resource type="Texture2D" uid="uid://56adgk7if5ne" path="res://assets/Tiny Swords (Free Pack)/UI Elements/UI Elements/Wood Table/WoodTable_Slots.png" id="4_ddcgh"]
+[ext_resource type="Texture2D" uid="uid://djdfgp87skegs" path="res://assets/Tiny Swords (Free Pack)/UI Elements/UI Elements/Bars/BigBar_Fill.png" id="5_67822"]
+[ext_resource type="Texture2D" uid="uid://bx2f1j3i6h4tw" path="res://assets/Tiny Swords (Free Pack)/UI Elements/UI Elements/Human Avatars/Avatars_01.png" id="6_x1h6u"]
+[ext_resource type="Texture2D" uid="uid://ber7fvb0rb1re" path="res://assets/Tiny Swords (Free Pack)/UI Elements/UI Elements/Icons/Icon_03.png" id="7_rnh0g"]
+[ext_resource type="Texture2D" uid="uid://dp36e21nu3uif" path="res://assets/Tiny Swords (Free Pack)/UI Elements/UI Elements/Icons/Icon_05.png" id="8_dblv2"]
+[ext_resource type="FontFile" uid="uid://bk4nbt30eth34" path="res://assets/flappyfont.TTF" id="9_ss112"]
+[ext_resource type="PackedScene" uid="uid://beml1uqve7s0t" path="res://scence/game_over.tscn" id="10_ddcgh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etnt3"]
+atlas = ExtResource("2_0j5b4")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcl1s"]
+atlas = ExtResource("2_0j5b4")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4r0d"]
+atlas = ExtResource("2_0j5b4")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi7cd"]
+atlas = ExtResource("2_0j5b4")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iiwgt"]
+atlas = ExtResource("2_0j5b4")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36i2e"]
+atlas = ExtResource("2_0j5b4")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_riy3l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etnt3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcl1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4r0d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fi7cd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iiwgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36i2e")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6wi34"]
+radius = 18.867962
+
+[sub_resource type="LabelSettings" id="LabelSettings_176m2"]
+font = ExtResource("9_ss112")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_mbpqr"]
+font = ExtResource("9_ss112")
+font_size = 25
+
+[node name="Trash" type="Node2D" unique_id=2138059845]
+
+[node name="Coin" type="Area2D" parent="." unique_id=442283382]
+script = ExtResource("1_so5us")
+
+[node name="Coin" type="AnimatedSprite2D" parent="Coin" unique_id=1033161355]
+position = Vector2(337, 231)
+scale = Vector2(1.3046875, 1.2265625)
+sprite_frames = SubResource("SpriteFrames_riy3l")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin" unique_id=1180858276]
+position = Vector2(335, 228)
+shape = SubResource("CircleShape2D_6wi34")
+
+[node name="HUD" type="Control" parent="." unique_id=337670470]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -62.0
+offset_top = 11.0
+offset_right = -22.0
+offset_bottom = 51.0
+script = ExtResource("3_l4cea")
+
+[node name="Flip" type="TextureRect" parent="HUD" unique_id=604454152]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 13.0
+offset_right = 668.0
+offset_bottom = 80.0
+texture = ExtResource("4_ddcgh")
+expand_mode = 1
+
+[node name="HpBar" type="TextureProgressBar" parent="HUD" unique_id=194783614]
+texture_filter = 1
+layout_mode = 0
+offset_left = 186.0
+offset_top = -2.0
+offset_right = 630.0
+offset_bottom = 97.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = ExtResource("5_67822")
+
+[node name="Avartar" type="TextureRect" parent="HUD/HpBar" unique_id=61376959]
+layout_mode = 0
+offset_left = -129.0
+offset_top = -37.0
+offset_right = 36.0
+offset_bottom = 133.0
+texture = ExtResource("6_x1h6u")
+expand_mode = 1
+
+[node name="Coin" type="TextureRect" parent="HUD" unique_id=1016455515]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -2.5
+anchor_bottom = 4.181
+offset_left = 176.0
+offset_top = 174.0
+offset_right = 230.0
+offset_bottom = -38.240005
+texture = ExtResource("7_rnh0g")
+expand_mode = 1
+
+[node name="Power" type="TextureRect" parent="HUD" unique_id=177717365]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 79.0
+offset_right = 430.0
+offset_bottom = 125.0
+texture = ExtResource("8_dblv2")
+expand_mode = 1
+
+[node name="LabelCoin" type="Label" parent="HUD" unique_id=497435960]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 92.0
+offset_right = 265.0
+offset_bottom = 109.0
+text = "0"
+label_settings = SubResource("LabelSettings_176m2")
+
+[node name="LabelPower" type="Label" parent="HUD" unique_id=95207599]
+layout_mode = 0
+offset_left = 439.0
+offset_top = 93.0
+offset_right = 473.0
+offset_bottom = 114.0
+text = "1"
+label_settings = SubResource("LabelSettings_176m2")
+
+[node name="LabelHp" type="Label" parent="HUD" unique_id=354013610]
+layout_mode = 0
+offset_left = 646.0
+offset_top = 34.0
+offset_right = 683.0
+offset_bottom = 60.0
+text = "100"
+label_settings = SubResource("LabelSettings_mbpqr")
+
+[node name="GameOver" parent="." unique_id=1250910834 instance=ExtResource("10_ddcgh")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="body_entered" from="Coin" to="Coin" method="_on_body_entered"]

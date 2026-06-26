@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bi43abekrb7j3"]
+
+[ext_resource type="Script" uid="uid://bfwtkpjamlcij" path="res://script/story.gd" id="1_884sc"]
+
+[sub_resource type="FontVariation" id="FontVariation_dr2kc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5xi4k"]
+font = SubResource("FontVariation_dr2kc")
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_884sc"]
+font_size = 40
+
+[node name="Story" type="CanvasLayer" unique_id=2127024706]
+script = ExtResource("1_884sc")
+
+[node name="Text_box" type="Label" parent="." unique_id=1326017844]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.5
+offset_top = -41.5
+offset_right = 75.5
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_5xi4k")
+
+[node name="Touch" type="Label" parent="." unique_id=1260759508]
+offset_left = 600.0
+offset_top = 408.0
+offset_right = 927.0
+offset_bottom = 463.0
+text = "Chạm để tiếp tục"
+label_settings = SubResource("LabelSettings_884sc")
+
+[node name="Story_telling" type="RichTextLabel" parent="." unique_id=934581648]
+anchors_preset = -1
+anchor_left = 0.264
+anchor_top = 0.64000005
+anchor_right = 0.264
+anchor_bottom = 0.64000005
+offset_left = 55.87201
+offset_top = -284.72003
+offset_right = 835.872
+offset_bottom = 253.27997
+theme_override_font_sizes/normal_font_size = 30
+scroll_active = false

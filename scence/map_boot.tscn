@@ -1,0 +1,182 @@
+[gd_scene format=3 uid="uid://dpfgixugmunkb"]
+
+[ext_resource type="Script" uid="uid://chocy64etnb14" path="res://script/map.gd" id="1_kjg02"]
+[ext_resource type="Texture2D" uid="uid://cyx6h1rdd2jg" path="res://assets/Free-Castle-Interior-Pixel-Game-Backgrounds/PNG/background 4/Plan 3.png" id="2_fjl3r"]
+[ext_resource type="Texture2D" uid="uid://43d76y2qvl73" path="res://assets/Free-Castle-Interior-Pixel-Game-Backgrounds/PNG/background 4/Plan 2.png" id="3_xdr0a"]
+[ext_resource type="PackedScene" uid="uid://ddneha0gewhqo" path="res://scence/ui.tscn" id="5_65o5x"]
+[ext_resource type="PackedScene" uid="uid://di85b6cfro3am" path="res://scence/dialouge.tscn" id="5_fjl3r"]
+[ext_resource type="PackedScene" uid="uid://bcdbkedsvkngj" path="res://scence/player.tscn" id="6_fjl3r"]
+[ext_resource type="PackedScene" uid="uid://cig7o7nyjckk7" path="res://scence/enemy.tscn" id="7_x8wqr"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xdr0a"]
+normal = Vector2(0.005319074, -0.9999859)
+distance = 78.50421
+
+[sub_resource type="LabelSettings" id="LabelSettings_fjl3r"]
+font_size = 20
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjl3r"]
+size = Vector2(26.125, 620)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8wqr"]
+size = Vector2(7, 596.5)
+
+[node name="Map_boot" type="Node2D" unique_id=2099945961]
+position = Vector2(-37, 190)
+scale = Vector2(2, 2)
+script = ExtResource("1_kjg02")
+
+[node name="Castle" type="TextureRect" parent="." unique_id=1900204407]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.5
+offset_top = -97.5
+offset_right = 644.722
+offset_bottom = 227.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_fjl3r")
+expand_mode = 3
+stretch_mode = 6
+metadata/_edit_lock_ = true
+
+[node name="Castle2" type="TextureRect" parent="." unique_id=2130520424]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 645.0
+offset_top = -97.5
+offset_right = 1267.2219
+offset_bottom = 227.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_fjl3r")
+expand_mode = 3
+stretch_mode = 6
+metadata/_edit_lock_ = true
+
+[node name="Castle4" type="TextureRect" parent="." unique_id=278420744]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1267.0
+offset_top = -97.0
+offset_right = 1889.2219
+offset_bottom = 228.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_fjl3r")
+expand_mode = 3
+stretch_mode = 6
+metadata/_edit_lock_ = true
+
+[node name="Castle3" type="TextureRect" parent="." unique_id=2095930611]
+offset_left = 23.0
+offset_top = -76.0
+offset_right = 599.0
+offset_bottom = 248.0
+texture = ExtResource("3_xdr0a")
+metadata/_edit_lock_ = true
+
+[node name="Carpet" type="TextureRect" parent="." unique_id=1818671767]
+offset_left = 599.0
+offset_top = -76.5
+offset_right = 1175.0
+offset_bottom = 247.5
+texture = ExtResource("3_xdr0a")
+metadata/_edit_lock_ = true
+
+[node name="Carpet2" type="TextureRect" parent="." unique_id=1989286648]
+offset_left = 1175.0
+offset_top = -76.0
+offset_right = 1751.0
+offset_bottom = 248.0
+texture = ExtResource("3_xdr0a")
+metadata/_edit_lock_ = true
+
+[node name="Carpet3" type="TextureRect" parent="." unique_id=1247078978]
+offset_left = 1751.0
+offset_top = -76.0
+offset_right = 2327.0
+offset_bottom = 248.0
+texture = ExtResource("3_xdr0a")
+metadata/_edit_lock_ = true
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=209971250]
+position = Vector2(329, 165.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1543524279]
+position = Vector2(61.5, 135.5)
+shape = SubResource("WorldBoundaryShape2D_xdr0a")
+
+[node name="Label" type="Label" parent="." unique_id=1458242463]
+offset_left = 1716.0
+offset_top = 51.0
+offset_right = 1898.5
+offset_bottom = 110.0
+text = "Tiếp tục tìm kiếm
+          >>>>>>>"
+label_settings = SubResource("LabelSettings_fjl3r")
+
+[node name="Player" parent="." unique_id=1884601066 instance=ExtResource("6_fjl3r")]
+position = Vector2(294, 140.5)
+metadata/_edit_lock_ = true
+
+[node name="Dialouge" parent="Player" unique_id=1438592303 instance=ExtResource("5_fjl3r")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 12.0
+offset_top = -18.5
+offset_right = 106.5
+offset_bottom = 7.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=152142964]
+position = Vector2(200, -70)
+limit_left = 0
+limit_top = 15
+limit_right = 3740
+
+[node name="UI" parent="." unique_id=508030428 instance=ExtResource("5_65o5x")]
+
+[node name="Wall" type="StaticBody2D" parent="." unique_id=1316554775]
+position = Vector2(-166, -3.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=607438713]
+position = Vector2(96.5, 187.5)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_xdr0a")
+
+[node name="Exit_map" type="Area2D" parent="." unique_id=569762026]
+position = Vector2(1636, 42.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit_map" unique_id=908995075]
+position = Vector2(314.5, 23.5)
+shape = SubResource("RectangleShape2D_fjl3r")
+
+[node name="Enemy" parent="." unique_id=1052105146 instance=ExtResource("7_x8wqr")]
+position = Vector2(1097.5, 137.5)
+
+[node name="Start_combat" type="Area2D" parent="." unique_id=1231985327]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Start_combat" unique_id=1385839012]
+position = Vector2(434, 78.5)
+shape = SubResource("RectangleShape2D_x8wqr")
+
+[connection signal="body_entered" from="Exit_map" to="." method="_on_exit_map_body_entered"]
+[connection signal="body_entered" from="Start_combat" to="." method="_on_start_combat_body_entered"]
+[connection signal="body_exited" from="Start_combat" to="." method="_on_start_combat_body_exited"]

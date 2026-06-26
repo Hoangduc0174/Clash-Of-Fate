@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://ddneha0gewhqo"]
+
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_5x3hj"]
+[ext_resource type="Script" uid="uid://dgcaqwgvbjm1t" path="res://script/ui.gd" id="1_b7uli"]
+[ext_resource type="Texture2D" uid="uid://d4kkfln1djuy" path="res://assets/TinyRoundBlueButton.png" id="2_coco2"]
+[ext_resource type="Texture2D" uid="uid://b3ry832h0n0lu" path="res://assets/fa1732.png" id="3_7qwy1"]
+[ext_resource type="Texture2D" uid="uid://vrtvxmnuuspu" path="res://assets/fa891.png" id="4_7qwy1"]
+
+[node name="UI" type="CanvasLayer" unique_id=508030428]
+script = ExtResource("1_b7uli")
+
+[node name="AttackButon" type="TouchScreenButton" parent="." unique_id=2117915188]
+modulate = Color(1, 1, 1, 0.5)
+position = Vector2(1188.9999, 368)
+scale = Vector2(3.578126, 3.5000002)
+texture_normal = ExtResource("2_coco2")
+action = "attack"
+metadata/_edit_lock_ = true
+
+[node name="AttackButton" type="TextureRect" parent="AttackButon" unique_id=1930153833]
+modulate = Color(1, 1, 1, 0.5882353)
+offset_left = 13.414876
+offset_top = 12.0
+offset_right = 51.144123
+offset_bottom = 50.57141
+texture = ExtResource("3_7qwy1")
+
+[node name="JumpButton2" type="TouchScreenButton" parent="." unique_id=1372215511]
+modulate = Color(1, 1, 1, 0.5)
+position = Vector2(1030.6643, 433.99078)
+rotation = 0.012942254
+scale = Vector2(2.0163643, 2.0306435)
+texture_normal = ExtResource("2_coco2")
+action = "jump"
+metadata/_edit_lock_ = true
+
+[node name="JumpButton" type="TextureRect" parent="JumpButton2" unique_id=1766080117]
+modulate = Color(1, 1, 1, 0.5882353)
+anchors_preset = -1
+anchor_bottom = 0.10700001
+offset_left = 5.5893717
+offset_top = -2.5297792
+offset_right = 53.287186
+offset_bottom = 39.484955
+texture = ExtResource("4_7qwy1")
+
+[node name="Virtual Joystick" parent="." unique_id=2007099054 instance=ExtResource("1_5x3hj")]
+anchor_left = 0.1
+anchor_top = 0.823
+anchor_right = 0.1
+anchor_bottom = 0.823
+offset_left = -224.20001
+offset_top = -161.30402
+offset_right = 75.799995
+offset_bottom = 138.69598
+mouse_filter = 1

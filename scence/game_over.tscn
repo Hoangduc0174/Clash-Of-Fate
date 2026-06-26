@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://beml1uqve7s0t"]
+
+[ext_resource type="Script" uid="uid://d4lysrqfufhva" path="res://script/game_over.gd" id="1_jfnk5"]
+[ext_resource type="FontFile" uid="uid://bk4nbt30eth34" path="res://assets/flappyfont.TTF" id="1_qdulh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jfnk5"]
+font = ExtResource("1_qdulh")
+font_size = 40
+
+[node name="GameOver" type="Control" unique_id=1250910834]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jfnk5")
+
+[node name="Panel" type="Panel" parent="." unique_id=1515080934]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.0
+offset_top = -237.0
+offset_right = 239.0
+offset_bottom = 237.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="OverMessage" type="Label" parent="Panel" unique_id=867542437]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 30.0
+offset_right = 236.0
+offset_bottom = 71.0
+scale = Vector2(2, 2)
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_jfnk5")
+
+[node name="DayMessage" type="Label" parent="Panel" unique_id=6567052]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 172.0
+offset_right = 240.0
+offset_bottom = 213.0
+scale = Vector2(2, 2)
+text = "DAY: 0"
+label_settings = SubResource("LabelSettings_jfnk5")
+
+[node name="RestartButton" type="Button" parent="Panel" unique_id=1502640050]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 327.0
+offset_right = 236.5
+offset_bottom = 382.5
+scale = Vector2(2, 2)
+text = "RESTART"
+
+[connection signal="pressed" from="Panel/RestartButton" to="." method="_on_restart_button_pressed"]

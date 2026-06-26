@@ -1,0 +1,191 @@
+[gd_scene format=3 uid="uid://ubngntcri8v6"]
+
+[ext_resource type="Script" uid="uid://mdujrgskf3oa" path="res://script/menu.gd" id="1_2oafe"]
+[ext_resource type="Texture2D" uid="uid://bl05r0wj16134" path="res://assets/parallax_forest_pack web/parallax_forest_pack web/v2/preview.png" id="2_1ngsc"]
+[ext_resource type="Texture2D" uid="uid://dglsre4h8tb6u" path="res://assets/Agis.png" id="3_1ngsc"]
+[ext_resource type="FontFile" uid="uid://dok605vgws85h" path="res://assets/Bonescript-Regular.otf" id="3_qk8n8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk8n8"]
+atlas = ExtResource("3_1ngsc")
+region = Rect2(0, 0, 224, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e2pel"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qk8n8")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s56se"]
+font_size = 13
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hl6vq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_maxp8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aa4jk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s56se"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7yxty"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gmgs8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tiycq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_171w0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nv4l5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0s2k1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fuijg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c8hrk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jgll8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sekq8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ii5lj"]
+
+[node name="Lobby" type="CanvasLayer" unique_id=1921834823]
+script = ExtResource("1_2oafe")
+
+[node name="Control" type="Control" parent="." unique_id=1478913356]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_lock_ = true
+
+[node name="Background" type="TextureRect" parent="Control" unique_id=573185594]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1112.0
+offset_bottom = 608.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1ngsc")
+expand_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Background2" type="TextureRect" parent="Control" unique_id=1428187999]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1152.0
+offset_right = 2264.0
+offset_bottom = 608.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1ngsc")
+expand_mode = 3
+stretch_mode = 6
+metadata/_edit_lock_ = true
+
+[node name="Background3" type="AnimatedSprite2D" parent="Control" unique_id=1129372612]
+modulate = Color(1, 1, 1, 0.05)
+position = Vector2(788, 373)
+scale = Vector2(1.3035715, 1.2375)
+sprite_frames = SubResource("SpriteFrames_e2pel")
+frame_progress = 1.0
+
+[node name="credit" type="Label" parent="Control" unique_id=208339329]
+modulate = Color(1, 1, 1, 0.293)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 860.0
+offset_top = 480.0
+offset_right = 1336.0
+offset_bottom = 633.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(2, 2)
+text = "Made by HOANG VAN DUC
+Nguồn: itch.io
+Art trong game Không thuộc độc quyền của mình
+"
+label_settings = SubResource("LabelSettings_s56se")
+metadata/_edit_lock_ = true
+
+[node name="Game_Tittle" type="Label" parent="Control" unique_id=397254133]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 490.0
+offset_top = 50.0
+offset_right = 1055.0
+offset_bottom = 150.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.95686275, 0.7607843, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("3_qk8n8")
+theme_override_font_sizes/font_size = 100
+text = "Clash Of Fate"
+
+[node name="Menu" type="Node2D" parent="Control" unique_id=2057907968]
+position = Vector2(-257, 150)
+metadata/_edit_lock_ = true
+
+[node name="Play" type="Button" parent="Control/Menu" unique_id=1859504197]
+offset_left = 437.0
+offset_top = 31.0
+offset_right = 576.0
+offset_bottom = 91.0
+theme_override_colors/font_color = Color(0.9647059, 0.8901961, 0.6313726, 1)
+theme_override_fonts/font = ExtResource("3_qk8n8")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hl6vq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_maxp8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_aa4jk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_s56se")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7yxty")
+text = "PLAY"
+
+[node name="Settings" type="Button" parent="Control/Menu" unique_id=153170536]
+offset_left = 437.0
+offset_top = 150.0
+offset_right = 685.0
+offset_bottom = 210.0
+theme_override_colors/font_color = Color(0.9647059, 0.8901961, 0.6313726, 1)
+theme_override_fonts/font = ExtResource("3_qk8n8")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gmgs8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tiycq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_171w0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_nv4l5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0s2k1")
+text = "SETTINGS"
+
+[node name="Quit" type="Button" parent="Control/Menu" unique_id=523906305]
+offset_left = 437.0
+offset_top = 269.0
+offset_right = 568.0
+offset_bottom = 329.0
+theme_override_colors/font_color = Color(0.9647059, 0.8901961, 0.6313726, 1)
+theme_override_fonts/font = ExtResource("3_qk8n8")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fuijg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c8hrk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jgll8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_sekq8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ii5lj")
+text = "QUIT"
+
+[connection signal="pressed" from="Control/Menu/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Control/Menu/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Control/Menu/Quit" to="." method="_on_quit_pressed"]
