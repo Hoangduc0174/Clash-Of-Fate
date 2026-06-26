@@ -116,6 +116,7 @@ metadata/_edit_lock_ = true
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=209971250]
 position = Vector2(329, 165.5)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1543524279]
 position = Vector2(61.5, 135.5)
@@ -129,6 +130,7 @@ offset_bottom = 110.0
 text = "Tiếp tục tìm kiếm
           >>>>>>>"
 label_settings = SubResource("LabelSettings_fjl3r")
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=1884601066 instance=ExtResource("6_fjl3r")]
 position = Vector2(294, 140.5)
@@ -155,6 +157,7 @@ limit_right = 3740
 
 [node name="Wall" type="StaticBody2D" parent="." unique_id=1316554775]
 position = Vector2(-166, -3.5)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=607438713]
 position = Vector2(96.5, 187.5)
@@ -163,6 +166,7 @@ shape = SubResource("WorldBoundaryShape2D_xdr0a")
 
 [node name="Exit_map" type="Area2D" parent="." unique_id=569762026]
 position = Vector2(1636, 42.5)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit_map" unique_id=908995075]
 position = Vector2(314.5, 23.5)

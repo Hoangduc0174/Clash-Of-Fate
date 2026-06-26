@@ -18,6 +18,7 @@ var max_hp := 100
 var hp := 100
 
 var can_move := true
+#ngan animtion khac chen vao
 var can_change_animation := true
 
 
@@ -47,16 +48,16 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("jump") and is_on_floor() and can_change_animation:
 		velocity.y = JUMP_VELOCITY
 
+	#lay input move
 	var direction := Input.get_axis("ui_left", "ui_right")
 
 	# Attack
 	if can_change_animation:
 
 		if !is_attacking:
-
 			if Input.is_action_pressed("attack"):
 
-				# Trên không chỉ cho full attack 2 lần
+				# Trên không chỉ cho full attack 1
 				if !is_on_floor() and count_combo >= 1:
 					pass
 				else:
@@ -65,11 +66,12 @@ func _physics_process(delta: float) -> void:
 		elif Input.is_action_just_pressed("attack"):
 			combo_attack = true
 
-	# Movement
+	# neu dang tan cong
 	if is_attacking:
-
+		#ko di chuyen
 		velocity.x = 0
-
+		
+		#neu dang tan cong tren khong cung ko di chuyen
 		if air_attack:
 			velocity.y = 0
 
@@ -83,27 +85,31 @@ func _physics_process(delta: float) -> void:
 
 	# Animation
 	if can_change_animation:
-
+		#neu dang attack
 		if is_attacking:
-
+			#chua bat animation attack thi bat len
 			if animate.animation != "attack":
 				animate.play("attack")
-
+		
+		#neu dang nhay
 		elif !is_on_floor():
-
+			#chua bat animation jump thi bat len
 			if animate.animation != "jump":
 				animate.play("jump")
-
+		
+		#neu di chuyen
 		elif direction != 0:
-
+			#chua bat animation run thi bat len
 			if animate.animation != "run":
 				animate.play("run")
 
+		#ko lam j ca
 		else:
-
+			#chua bat animation idle thi bat len
 			if animate.animation != "idle":
 				animate.play("idle")
 
+#xu li va cham
 	move_and_slide()
 
 
@@ -126,11 +132,11 @@ func start_attack() -> void:
 		if enemy != null and enemy.has_method("take_damage"):
 			enemy.take_damage(damage)
 
-	# Chờ tới frame 3
+	#cho toi frame thu 3 thi bat dau doi de noi combo
 	while animate.frame < 3:
 		await get_tree().process_frame
 
-	# Full attack
+	# Full attack combk
 	if Input.is_action_pressed("attack") or combo_attack:
 
 		# Đếm số lần full attack trên không
@@ -138,11 +144,6 @@ func start_attack() -> void:
 			count_combo += 1
 
 		await animate.animation_finished
-
-	# Attack thường
-	else:
-
-		animate.play("idle")
 
 	is_attacking = false
 	air_attack = false
@@ -159,3 +160,10 @@ func take_damage(amount: int) -> void:
 
 func die() -> void:
 	queue_free()
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	var enemy = area.get_parent()
+	
+	if enemy.has_method("take_damage"):
+		enemy.take_damage(damage)

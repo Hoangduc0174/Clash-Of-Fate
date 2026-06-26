@@ -212,14 +212,22 @@ radius = 17.528547
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3g3fa"]
 atlas = ExtResource("3_pu7dk")
-region = Rect2(199, 176, 82, 4)
+region = Rect2(76, 133, 7, 84)
 
 [sub_resource type="LabelSettings" id="LabelSettings_4w8p1"]
 font = ExtResource("4_pu7dk")
-font_size = 5
+font_size = 10
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_on7sf"]
+atlas = ExtResource("3_pu7dk")
+region = Rect2(199, 176, 82, 4)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1052105146]
+texture_filter = 1
 scale = Vector2(2, 2)
+slide_on_ceiling = false
 script = ExtResource("1_355ya")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1426564378]
@@ -227,12 +235,13 @@ texture_filter = 1
 position = Vector2(21, 1.5000005)
 scale = Vector2(1.0156249, 1.0695312)
 sprite_frames = SubResource("SpriteFrames_jxbx5")
-animation = &"idle"
-frame_progress = 0.9000217
+animation = &"death"
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1435563308]
 position = Vector2(20.5, 23)
 shape = SubResource("CapsuleShape2D_66tjb")
+metadata/_edit_lock_ = true
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=886024626]
 metadata/_edit_lock_ = true
@@ -245,31 +254,42 @@ metadata/_edit_lock_ = true
 [node name="HUD" type="Control" parent="." unique_id=584821281]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.5
-offset_right = 40.5
-offset_bottom = 36.5
-metadata/_edit_lock_ = true
+offset_left = -6.5
+offset_top = 4.0
+offset_right = 21.0
+offset_bottom = 20.0
+
+[node name="Bolder" type="TextureProgressBar" parent="HUD" unique_id=814551199]
+layout_mode = 0
+offset_left = 61.31916
+offset_top = -19.0
+offset_right = 66.57275
+offset_bottom = 39.350014
+rotation = 1.5707964
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_3g3fa")
+
+[node name="LabelHp" type="Label" parent="HUD" unique_id=764024253]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_left = 62.0
+offset_top = -22.5
+offset_right = 74.0
+offset_bottom = -8.5
+text = "10"
+label_settings = SubResource("LabelSettings_4w8p1")
 
 [node name="HpBar" type="TextureProgressBar" parent="HUD" unique_id=612161669]
 layout_mode = 0
-offset_left = 11.0
-offset_top = -12.0
-offset_right = 47.5
-offset_bottom = -10.5
+offset_left = 8.5
+offset_top = -18.0
+offset_right = 54.0
+offset_bottom = -14.5
 max_value = 10.0
 value = 10.0
 nine_patch_stretch = true
-texture_progress = SubResource("AtlasTexture_3g3fa")
-
-[node name="LabelHp" type="Label" parent="HUD" unique_id=764024253]
-layout_mode = 0
-offset_left = 48.5
-offset_top = -15.0
-offset_right = 53.5
-offset_bottom = -9.0
-text = "10"
-label_settings = SubResource("LabelSettings_4w8p1")
+texture_progress = SubResource("AtlasTexture_on7sf")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_exited" from="Hitbox" to="." method="_on_hitbox_area_exited"]
