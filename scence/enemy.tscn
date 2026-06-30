@@ -5,6 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://b6nhfueo5i5u0" path="res://assets/32x32-Tilesheet.png" id="3_pu7dk"]
 [ext_resource type="FontFile" uid="uid://bk4nbt30eth34" path="res://assets/flappyfont.TTF" id="4_pu7dk"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66tjb"]
+radius = 6.5
+height = 24.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_1b5yi"]
 atlas = ExtResource("1_j6d7t")
 region = Rect2(0, 128, 64, 64)
@@ -203,16 +207,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66tjb"]
-radius = 6.5
-height = 24.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_355ya"]
-radius = 17.528547
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3g3fa"]
-atlas = ExtResource("3_pu7dk")
-region = Rect2(76, 133, 7, 84)
+[sub_resource type="CircleShape2D" id="CircleShape2D_pu7dk"]
+radius = 32.003906
 
 [sub_resource type="LabelSettings" id="LabelSettings_4w8p1"]
 font = ExtResource("4_pu7dk")
@@ -230,52 +226,48 @@ scale = Vector2(2, 2)
 slide_on_ceiling = false
 script = ExtResource("1_355ya")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1426564378]
-texture_filter = 1
-position = Vector2(21, 1.5000005)
-scale = Vector2(1.0156249, 1.0695312)
-sprite_frames = SubResource("SpriteFrames_jxbx5")
-animation = &"death"
-metadata/_edit_lock_ = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1435563308]
 position = Vector2(20.5, 23)
 shape = SubResource("CapsuleShape2D_66tjb")
 metadata/_edit_lock_ = true
 
-[node name="Hitbox" type="Area2D" parent="." unique_id=886024626]
+[node name="Graphics" type="Node2D" parent="." unique_id=377137920]
+position = Vector2(40, 0)
+scale = Vector2(-1, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Graphics" unique_id=1426564378]
+texture_filter = 1
+position = Vector2(20.999996, 1.5000002)
+scale = Vector2(1.0156248, 1.0695311)
+sprite_frames = SubResource("SpriteFrames_jxbx5")
+animation = &"attack"
+autoplay = "idle"
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=991418932]
-position = Vector2(33, 19)
-shape = SubResource("CircleShape2D_355ya")
+[node name="Hit_box" type="Area2D" parent="Graphics" unique_id=1625153219]
+position = Vector2(-1.9073486e-06, -1.1920929e-07)
 metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Graphics/Hit_box" unique_id=1522275206]
+position = Vector2(45.5, 14)
+shape = SubResource("CircleShape2D_pu7dk")
 
 [node name="HUD" type="Control" parent="." unique_id=584821281]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -6.5
-offset_top = 4.0
-offset_right = 21.0
-offset_bottom = 20.0
-
-[node name="Bolder" type="TextureProgressBar" parent="HUD" unique_id=814551199]
-layout_mode = 0
-offset_left = 61.31916
-offset_top = -19.0
-offset_right = 66.57275
-offset_bottom = 39.350014
-rotation = 1.5707964
-nine_patch_stretch = true
-texture_under = SubResource("AtlasTexture_3g3fa")
+offset_left = -9.0
+offset_top = 3.5
+offset_right = 18.5
+offset_bottom = 19.5
+metadata/_edit_lock_ = true
 
 [node name="LabelHp" type="Label" parent="HUD" unique_id=764024253]
 texture_filter = 1
 texture_repeat = 1
 layout_mode = 0
-offset_left = 62.0
+offset_left = -7.0
 offset_top = -22.5
-offset_right = 74.0
+offset_right = 5.0
 offset_bottom = -8.5
 text = "10"
 label_settings = SubResource("LabelSettings_4w8p1")
@@ -291,5 +283,5 @@ value = 10.0
 nine_patch_stretch = true
 texture_progress = SubResource("AtlasTexture_on7sf")
 
-[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="area_exited" from="Hitbox" to="." method="_on_hitbox_area_exited"]
+[connection signal="body_entered" from="Graphics/Hit_box" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_exited" from="Graphics/Hit_box" to="." method="_on_hit_box_body_exited"]

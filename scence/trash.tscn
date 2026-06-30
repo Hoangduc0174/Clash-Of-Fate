@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://cb7ser7n854t"]
 
+[ext_resource type="Script" uid="uid://bohgkq08l5di7" path="res://scence/trash.gd" id="1_67822"]
 [ext_resource type="Script" uid="uid://cfnvl48lrl83s" path="res://script/coin.gd" id="1_so5us"]
-[ext_resource type="Texture2D" uid="uid://cli6rhi2a7jhp" path="res://assets/Tiny Swords (Free Pack)/Terrain/Resources/Gold/Gold Resource/Gold_Resource_Highlight.png" id="2_0j5b4"]
+[ext_resource type="Texture2D" uid="uid://o3cdexpr2mfy" path="res://assets/Tiny Swords (Free Pack)/Terrain/Resources/Gold/Gold Resource/Gold_Resource_Highlight.png" id="2_0j5b4"]
 [ext_resource type="Script" uid="uid://drpgvgnxn3i2v" path="res://script/hud.gd" id="3_l4cea"]
-[ext_resource type="Texture2D" uid="uid://56adgk7if5ne" path="res://assets/Tiny Swords (Free Pack)/UI Elements/UI Elements/Wood Table/WoodTable_Slots.png" id="4_ddcgh"]
-[ext_resource type="Texture2D" uid="uid://djdfgp87skegs" path="res://assets/Tiny Swords (Free Pack)/UI Elements/UI Elements/Bars/BigBar_Fill.png" id="5_67822"]
-[ext_resource type="Texture2D" uid="uid://bx2f1j3i6h4tw" path="res://assets/Tiny Swords (Free Pack)/UI Elements/UI Elements/Human Avatars/Avatars_01.png" id="6_x1h6u"]
-[ext_resource type="Texture2D" uid="uid://ber7fvb0rb1re" path="res://assets/Tiny Swords (Free Pack)/UI Elements/UI Elements/Icons/Icon_03.png" id="7_rnh0g"]
-[ext_resource type="Texture2D" uid="uid://dp36e21nu3uif" path="res://assets/Tiny Swords (Free Pack)/UI Elements/UI Elements/Icons/Icon_05.png" id="8_dblv2"]
+[ext_resource type="Texture2D" uid="uid://bhvxk33vmwcv5" path="res://assets/Tiny Swords (Free Pack)/UI Elements/UI Elements/Wood Table/WoodTable_Slots.png" id="4_ddcgh"]
+[ext_resource type="Texture2D" uid="uid://dwlvead4a64ij" path="res://assets/Tiny Swords (Free Pack)/UI Elements/UI Elements/Bars/BigBar_Fill.png" id="5_67822"]
+[ext_resource type="Texture2D" uid="uid://bih75owd1rdx5" path="res://assets/Tiny Swords (Free Pack)/UI Elements/UI Elements/Human Avatars/Avatars_01.png" id="6_x1h6u"]
+[ext_resource type="Texture2D" uid="uid://d27uslcwixfmo" path="res://assets/Tiny Swords (Free Pack)/UI Elements/UI Elements/Icons/Icon_03.png" id="7_rnh0g"]
+[ext_resource type="Texture2D" uid="uid://djcant77qvyf8" path="res://assets/Tiny Swords (Free Pack)/UI Elements/UI Elements/Icons/Icon_05.png" id="8_dblv2"]
 [ext_resource type="FontFile" uid="uid://bk4nbt30eth34" path="res://assets/flappyfont.TTF" id="9_ss112"]
 [ext_resource type="PackedScene" uid="uid://beml1uqve7s0t" path="res://scence/game_over.tscn" id="10_ddcgh"]
 
@@ -73,6 +74,7 @@ font = ExtResource("9_ss112")
 font_size = 25
 
 [node name="Trash" type="Node2D" unique_id=2138059845]
+script = ExtResource("1_67822")
 
 [node name="Coin" type="Area2D" parent="." unique_id=442283382]
 script = ExtResource("1_so5us")

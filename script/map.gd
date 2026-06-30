@@ -72,11 +72,6 @@ func type_loop(label: Label, text_show: String, speed := 0.05):
 
 func _on_start_combat_body_entered(body: Node2D) -> void:
 	if body is Player:
-		#xoay enemy lai doi dien player
-		enemy.animate.flip_h = true
-		#chay animation idle
-		enemy.can_move = false
-		
 		#stop Player
 		player.can_move = false
 		player.animate.play("idle")
@@ -111,6 +106,7 @@ func _on_start_combat_body_entered(body: Node2D) -> void:
 		#kich hoat aim. Enemy truy sat player
 		enemy.target = player
 		enemy.can_move = true
+
 func _on_exit_map_body_entered(body: Node2D) -> void:
 	#Exit map
 		if body is Player:
@@ -128,10 +124,12 @@ func _on_start_combat_body_exited(body: Node2D) -> void:
 		Start_combat_zone.set_deferred("monitoring", false)
 	
 func Camera_setting():
-	Camera.global_position.x = lerp(
-	Camera.global_position.x,
-	Camera.global_position.x, 0.2)
-	Camera.global_position.y = fixed_y_camera
+	if is_instance_valid(Player):
+		Camera.global_position.x = lerp(
+		Camera.global_position.x,
+		Camera.global_position.x, 0.2)
+		Camera.global_position.y = fixed_y_camera
+		
 
 func hovering(Name, t):
 	time += t

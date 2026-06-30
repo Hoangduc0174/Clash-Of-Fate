@@ -146,12 +146,14 @@ offset_right = 106.5
 offset_bottom = 7.0
 grow_horizontal = 1
 grow_vertical = 1
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=152142964]
 position = Vector2(200, -70)
 limit_left = 0
 limit_top = 15
 limit_right = 3740
+metadata/_edit_lock_ = true
 
 [node name="UI" parent="." unique_id=508030428 instance=ExtResource("5_65o5x")]
 

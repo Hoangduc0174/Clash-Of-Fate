@@ -5,17 +5,30 @@
 [ext_resource type="Texture2D" uid="uid://d4kkfln1djuy" path="res://assets/TinyRoundBlueButton.png" id="2_coco2"]
 [ext_resource type="Texture2D" uid="uid://b3ry832h0n0lu" path="res://assets/fa1732.png" id="3_7qwy1"]
 [ext_resource type="Texture2D" uid="uid://vrtvxmnuuspu" path="res://assets/fa891.png" id="4_7qwy1"]
+[ext_resource type="Texture2D" uid="uid://b6nhfueo5i5u0" path="res://assets/32x32-Tilesheet.png" id="6_fnwvo"]
+[ext_resource type="Texture2D" uid="uid://bypkiugo12e0x" path="res://Outline/120x80_PNGSheets/_Idle.png" id="7_5bslb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnwvo"]
+atlas = ExtResource("6_fnwvo")
+region = Rect2(102, 141, 84, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bslb"]
+atlas = ExtResource("6_fnwvo")
+region = Rect2(199, 176, 82, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pduh"]
+atlas = ExtResource("7_5bslb")
+region = Rect2(41.655884, 41.967377, 29.16623, 10.896557)
 
 [node name="UI" type="CanvasLayer" unique_id=508030428]
 script = ExtResource("1_b7uli")
 
 [node name="AttackButon" type="TouchScreenButton" parent="." unique_id=2117915188]
 modulate = Color(1, 1, 1, 0.5)
-position = Vector2(1188.9999, 368)
+position = Vector2(1259, 424)
 scale = Vector2(3.578126, 3.5000002)
 texture_normal = ExtResource("2_coco2")
 action = "attack"
-metadata/_edit_lock_ = true
 
 [node name="AttackButton" type="TextureRect" parent="AttackButon" unique_id=1930153833]
 modulate = Color(1, 1, 1, 0.5882353)
@@ -24,6 +37,7 @@ offset_top = 12.0
 offset_right = 51.144123
 offset_bottom = 50.57141
 texture = ExtResource("3_7qwy1")
+metadata/_edit_lock_ = true
 
 [node name="JumpButton2" type="TouchScreenButton" parent="." unique_id=1372215511]
 modulate = Color(1, 1, 1, 0.5)
@@ -49,8 +63,49 @@ anchor_left = 0.1
 anchor_top = 0.823
 anchor_right = 0.1
 anchor_bottom = 0.823
-offset_left = -224.20001
-offset_top = -161.30402
-offset_right = 75.799995
-offset_bottom = 138.69598
+offset_left = -198.20001
+offset_top = -103.304016
+offset_right = 101.799995
+offset_bottom = 196.69598
 mouse_filter = 1
+
+[node name="HUD" type="Control" parent="." unique_id=1134190387]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -40.0
+offset_top = -39.0
+offset_right = 74.0
+offset_bottom = 166.0
+
+[node name="bolder" type="TextureProgressBar" parent="HUD" unique_id=635630682]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 108.0
+offset_right = 527.8334
+offset_bottom = 144.66666
+scale = Vector2(1.2, 1.2)
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_fnwvo")
+
+[node name="Hp_bar" type="TextureProgressBar" parent="HUD" unique_id=1805743514]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 117.0
+offset_right = 488.66663
+offset_bottom = 138.0
+scale = Vector2(1.2, 1.2)
+value = 100.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_5bslb")
+metadata/_edit_lock_ = true
+
+[node name="Avarta" type="TextureRect" parent="HUD" unique_id=1913687213]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.039
+offset_left = -38.0
+offset_top = 40.0
+offset_right = 274.0
+offset_bottom = 164.005
+texture = SubResource("AtlasTexture_3pduh")
+metadata/_edit_lock_ = true
