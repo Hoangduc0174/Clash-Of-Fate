@@ -1,9 +1,10 @@
 extends CanvasLayer
 
 @onready var player := get_parent().get_node("Player")
-@onready var hp_bar: TextureProgressBar = $HUD/Hp_bar
+@onready var hp_bar := $HUD/Hp_bar
 @onready var hud := $HUD
 @onready var avarta = $HUD/Avarta
+@onready var label_hp := $HUD/Label_hp
 
 var hud_pos: Vector2
 var current_hp := -1
@@ -28,6 +29,7 @@ func _process(_delta):
 func update_hp():
 	var tween = create_tween()
 	tween.tween_property(hp_bar, "value", player.hp, 0.25)
+	label_hp.text = str(current_hp)
 
 
 func shake_hud():

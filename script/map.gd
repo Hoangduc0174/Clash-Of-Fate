@@ -50,14 +50,15 @@ func _ready():
 	await player.animate.animation_finished
 	
 	#talk
-	await Box_talk.Talk(Box_talk.Player_talk, 0, 2)
+	await Box_talk.Talk(Box_talk.Player_talk, 0, 1)
 	
 	player.can_change_animation = true
 
 func _process(delta: float) -> void:
 	Camera_setting()
 	hovering(Announce, delta)
-
+	if player.is_dead == true:
+		get_tree().reload_current_scene()
 
 func type_loop(label: Label, text_show: String, speed := 0.05):
 	while true:
@@ -98,7 +99,7 @@ func _on_start_combat_body_entered(body: Node2D) -> void:
 	
 		await tween.finished
 		
-		await Box_talk.Talk(Box_talk.Player_talk, 3, 3)
+		await Box_talk.Talk(Box_talk.Player_talk, 2, 2)
 		
 		#tra lai di chuyen cho player
 		player.can_move = true
@@ -114,7 +115,7 @@ func _on_exit_map_body_entered(body: Node2D) -> void:
 			tween.tween_property(Map, "modulate:a", 0, 1.0)
 			player.can_move = false
 			await tween.finished
-			Game_state.Story_telling = 1
+			Game_state.current_map = 1
 			get_tree().change_scene_to_file("res://scence/story.tscn")
 
 

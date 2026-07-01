@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://vrtvxmnuuspu" path="res://assets/fa891.png" id="4_7qwy1"]
 [ext_resource type="Texture2D" uid="uid://b6nhfueo5i5u0" path="res://assets/32x32-Tilesheet.png" id="6_fnwvo"]
 [ext_resource type="Texture2D" uid="uid://bypkiugo12e0x" path="res://Outline/120x80_PNGSheets/_Idle.png" id="7_5bslb"]
+[ext_resource type="FontFile" uid="uid://bk4nbt30eth34" path="res://assets/flappyfont.TTF" id="8_3pduh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fnwvo"]
 atlas = ExtResource("6_fnwvo")
@@ -19,6 +20,12 @@ region = Rect2(199, 176, 82, 4)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3pduh"]
 atlas = ExtResource("7_5bslb")
 region = Rect2(41.655884, 41.967377, 29.16623, 10.896557)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tpxk2"]
+font = ExtResource("8_3pduh")
+font_size = 50
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [node name="UI" type="CanvasLayer" unique_id=508030428]
 script = ExtResource("1_b7uli")
@@ -74,7 +81,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_left = -40.0
 offset_top = -39.0
-offset_right = 74.0
+offset_right = 166.0
 offset_bottom = 166.0
 
 [node name="bolder" type="TextureProgressBar" parent="HUD" unique_id=635630682]
@@ -109,3 +116,12 @@ offset_right = 274.0
 offset_bottom = 164.005
 texture = SubResource("AtlasTexture_3pduh")
 metadata/_edit_lock_ = true
+
+[node name="Label_hp" type="Label" parent="HUD" unique_id=1202504837]
+layout_mode = 0
+offset_left = 629.0
+offset_top = 105.0
+offset_right = 735.0
+offset_bottom = 166.0
+text = "100"
+label_settings = SubResource("LabelSettings_tpxk2")

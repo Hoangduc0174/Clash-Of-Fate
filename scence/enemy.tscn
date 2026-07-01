@@ -212,7 +212,7 @@ radius = 32.003906
 
 [sub_resource type="LabelSettings" id="LabelSettings_4w8p1"]
 font = ExtResource("4_pu7dk")
-font_size = 10
+font_size = 8
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
@@ -234,6 +234,7 @@ metadata/_edit_lock_ = true
 [node name="Graphics" type="Node2D" parent="." unique_id=377137920]
 position = Vector2(40, 0)
 scale = Vector2(-1, 1)
+metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Graphics" unique_id=1426564378]
 texture_filter = 1
@@ -249,7 +250,7 @@ position = Vector2(-1.9073486e-06, -1.1920929e-07)
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Graphics/Hit_box" unique_id=1522275206]
-position = Vector2(45.5, 14)
+position = Vector2(34.5, -5)
 shape = SubResource("CircleShape2D_pu7dk")
 
 [node name="HUD" type="Control" parent="." unique_id=584821281]
@@ -265,19 +266,20 @@ metadata/_edit_lock_ = true
 texture_filter = 1
 texture_repeat = 1
 layout_mode = 0
-offset_left = -7.0
-offset_top = -22.5
-offset_right = 5.0
-offset_bottom = -8.5
+offset_left = 44.5
+offset_top = -9.5
+offset_right = 56.5
+offset_bottom = 4.5
 text = "10"
 label_settings = SubResource("LabelSettings_4w8p1")
 
 [node name="HpBar" type="TextureProgressBar" parent="HUD" unique_id=612161669]
 layout_mode = 0
-offset_left = 8.5
-offset_top = -18.0
-offset_right = 54.0
-offset_bottom = -14.5
+offset_left = 47.5
+offset_top = 28.5
+offset_right = 76.161514
+offset_bottom = 31.165993
+rotation = 4.712389
 max_value = 10.0
 value = 10.0
 nine_patch_stretch = true

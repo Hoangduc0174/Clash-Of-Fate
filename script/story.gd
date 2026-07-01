@@ -4,15 +4,12 @@ extends CanvasLayer
 @onready var Touch := $Touch
 @onready var Story_telling := $Story_telling
 
-#Story_telling
-var Story_telling_map_0 = Game_state.Story_telling
-
 
 func _ready() -> void:
 	Text_box.modulate.a = 0.0
 	
 	#khoi dong map 0
-	if Game_state.current_map == 0 and Story_telling_map_0 == 0:
+	if Game_state.current_map == 0:
 		Text_box.text = "Chương 1: Tỉnh Dậy"
 
 		Touch.modulate.a = 0
@@ -36,7 +33,7 @@ func _ready() -> void:
 		get_tree().change_scene_to_file("res://scence/game.tscn")
 	
 	#Khoi dong map 1
-	if Game_state.current_map == 0 and Story_telling_map_0 == 1:
+	if Game_state.current_map == 1:
 		Story_telling.modulate.a = 0
 		Touch.modulate.a = 0
 		Story_telling.text = "Sau khi tìm kiếm khắp lâu đài nhưng không thấy ai\nanh cảm thấy vô cùng hoang mang\nHiệp Sĩ vô danh quyết định ra khỏi lâu đài..."

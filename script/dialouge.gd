@@ -5,7 +5,6 @@ extends Control
 var Player_talk := [
 	"Sao mình lại ở đây?",
 	"Mọi thứ thật mơ hồ...",
-	"Mọi người đâu cả rồi? Mình phải mau chóng tìm họ...",
 	"Nó là thứ quái quỷ gì vậy?",
 ]
 

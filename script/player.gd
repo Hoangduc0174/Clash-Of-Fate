@@ -179,14 +179,13 @@ func die() -> void:
 	if is_dead:
 		return
 	
-	is_dead = true
 	can_move = false
 	is_attacking = false
 	can_change_animation =false
 	
 	animate.play("death")
 	await animate.animation_finished
-	get_tree().paused =  true
+	is_dead = true
 
 func _on_hitbox_body_entered(body):
 	if body.has_method("take_damage"):
